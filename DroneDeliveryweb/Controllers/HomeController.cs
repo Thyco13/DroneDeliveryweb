@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Xml.Linq;
 using DroneDeliveryweb.helpers;
 using DroneDeliveryweb.Models;
+using EASendMail;
 
 namespace DroneDeliveryweb.Controllers
 {
@@ -341,14 +342,14 @@ namespace DroneDeliveryweb.Controllers
 
             try
             {
-                var customer = db.Customers.FirstOrDefault(i => i.Id == customerId);
+               var customer = db.Customers.FirstOrDefault(i => i.Id == customerId);
 
                 var order = new OrderHistory();
                 order.Customer = customer;
                 order.ToCoordinates = cords;
                 db.OrderHistories.Add(order);
                 db.SaveChanges();
-                var body = $"Hi! \r\n \r\n Thank you for choosing to deliver you pakage with our Drone service. \r\n \r\n Order Information:" + "\r\n" + "Order Number: " + order.Orderid + "\r\n " +
+                var body = $"Hi "+customer.Name+"! \r\n \r\n Thank you for choosing to deliver you pakage with our Drone service. \r\n \r\n Order Information:" + "\r\n" + "Order Number: " + order.Orderid + "\r\n " +
                 "\r\n Pakage sent from: " + customer.Name + " " + customer.LastName + "\r\n" + "Adress: " + customer.Street + " " + customer.City +
                 "\r\n" + "To Adress: " + cords.ToStreet + " " + cords.ToCity + "\r\n" +" Distance: "+cords.Distance + "\r\n Price: " + cords.Price + "\r\n Weight: "+ cords.Weight + "\r\n \r\n" + "Br, The Droney Family";
 
@@ -364,8 +365,8 @@ namespace DroneDeliveryweb.Controllers
             {
 
             }
-
-            return View("Index");
+            //
+            return View("Index", new Viewmodel());
         }
 
         
@@ -373,6 +374,11 @@ namespace DroneDeliveryweb.Controllers
         {
             return View("Index", new Viewmodel());
         }
+
+       
+
+
+
     }
     
 }
