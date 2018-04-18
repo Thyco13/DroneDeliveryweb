@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneDeliveryweb", "DroneDeliveryweb\DroneDeliveryweb.csproj", "{86056F1C-6314-43A8-8287-18CCE1C948DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86056F1C-6314-43A8-8287-18CCE1C948DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86056F1C-6314-43A8-8287-18CCE1C948DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86056F1C-6314-43A8-8287-18CCE1C948DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86056F1C-6314-43A8-8287-18CCE1C948DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA52C632-F952-47CF-A190-FB91C69B75E1}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,106 @@
+﻿@model IEnumerable<DroneDeliveryweb.Models.OrderHistory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Order History</h2>
+<form action="@Url.Action("Index")">
+    <input class="form-control col-md-2" type="number" name="filter" style="width:150px" />
+    <input class="btn btn-default" type="submit" id="filter" />
+</form>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Orderid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.Zip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToCoordinates.ToStreet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToCoordinates.ToCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToCoordinates.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToCoordinates.Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToCoordinates.Distance)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Orderid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.Street)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.Zip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToCoordinates.ToStreet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToCoordinates.ToCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToCoordinates.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToCoordinates.Weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToCoordinates.Distance)
+        </td>
+        
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.Orderid }) |*@
+            @Html.ActionLink("Details", "Details", new { id = item.Orderid }) |
+            @*@Html.ActionLink("Delete", "Delete", new { id = item.Orderid })*@
+        </td>
+    </tr>
+}
+
+</table>
