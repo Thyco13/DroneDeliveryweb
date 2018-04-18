@@ -221,7 +221,8 @@ namespace DroneDeliveryweb.Controllers
             
             if (Weight != null && Distance != null)
             {
-                int weight = Convert.ToInt32(Weight);
+                string w = Weight.Replace("kg", "");
+                int weight = Convert.ToInt32(w);
 
                 string distance = Distance.Replace("km", "").Trim();
                 string distance2 = distance.Replace(".", ",");

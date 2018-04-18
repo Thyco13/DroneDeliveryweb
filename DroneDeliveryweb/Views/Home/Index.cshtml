@@ -96,6 +96,18 @@
                                 <input name="FromLng" type="text" readonly class="form-control" value="@Model.Coordinates.Fromlng" />
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div>
+                                <label class="control-label col-md-12">Distance:</label>
+                                <input name="Distance" type="text" class="form-control" style="width:100px" readonly value="@Model.Coordinates.Distance" />
+                            </div>
+                            <div>
+                                <label>Weather:</label>
+                                <textarea name="Weather" style="width:200px; height:75px" class="form-control" readonly>@Model.Coordinates.Weather</textarea>
+                                @*<input name="Weather" type="text" class="form-control" readonly style="width:550px;" value="@Model.Coordinates.Weather" />*@
+                            </div>
+
+                        </div>
                     </div>
 
                     <div class="col-md-6">
@@ -111,7 +123,7 @@
                         <input type="text" name="ToZip" class="form-control" value="@Model.Coordinates.ToZip" />
                         <hr />
                         <label class="control-label col-md-12">Weight:</label>
-                        <input name="Weight" type="text" class=" form-control" value="@Model.Coordinates.Weight" />
+                        <input name="Weight" type="text" class=" form-control" value="@Model.Coordinates.Weight kg" />
                         <div class="form-group">
                             <label class="control-label col-md-12">Lat:</label>
                             <div class="col-md-12">
@@ -124,24 +136,17 @@
                                 <input name="ToLng" type="text" readonly class="form-control" value="@Model.Coordinates.ToLng" />
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div>
-                                <label class="control-label col-md-12">Distance:</label>
-                                <input name="Distance" type="text" class="form-control" readonly value="@Model.Coordinates.Distance" />
-                            </div>
-                            <div>
-                                <label>Weather:</label>
-                                <input name="Weather" type="text" class="form-control" readonly value="@Model.Coordinates.Weather" />
-                            </div>
-
-                        </div>
+                        
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-12">
-                                <input id="GetToCoordinates" type="submit" value="Calculate" class="btn btn-default" />
+                                <input id="GetToCoordinates" type="submit" value="Calculate" style="width:200px"  class="btn btn-default" />
+                                <br />
+                                <br />
+                                <input type="submit" class="btn btn-default" id="CreateOrder" value="Create Order" style="width:200px" formaction="@Url.Action("CreateOrder")" />
                             </div>
                         </div>
                     </div>
-                    <input type="submit" class="btn btn-default" id="CreateOrder" value="Create Order" formaction="@Url.Action("CreateOrder")" />
+                    
                 </form>
 
             </div>
