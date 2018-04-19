@@ -7,12 +7,7 @@
 <div class="jumbotron">
     <h1>Drone Delivery <img src="~/Images/Drone.jpg" alt="Image" width="100" height="100" class="left"/></h1>
 </div>
-@*@Model.Customer.Name
-@Model.Customer.LastName
-@Model.Customer.Email
-@Model.Customer.Street
-@Model.Customer.City
-@Model.Customer.Zip*@
+
 <div class="row">
     <div class="col-md-9">
         <div class="col-md-9">
@@ -53,14 +48,14 @@
                 @Html.EditorFor(model => model.Customer.Email, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Customer.Email, "", new { @class = "text-danger" })
             </div>
-
+            
         </div>
 }
         </div>
         </div>
     <div class="col-md-3">
         <form action="@Url.Action("ClearAll")">
-            <input type="submit" class="btn btn-default" id="ClearAll" value="Clear All"/>
+            <input type="submit" class="btn btn-default" style="background-color:indianred;width:200px; font:bold" id="ClearAll" value="Clear All"/>
         </form>
         
     </div>
@@ -84,13 +79,13 @@
                         <hr />
                         <label class="control-label col-md-12">Price:</label>
                         <input name="Price" type="text" class="form-control" value="@Model.Coordinates.Price" readonly />
-                        <div class="form-group">
+                        <div class="form-group col-md-6" >
                             <label class="control-label col-md-12">Lat:</label>
                             <div class="col-md-12">
                                 <input name="FromLat" type="text" readonly class="form-control" value="@Model.Coordinates.Fromlat" />
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group col-md-6">
                             <label class="control-label col-md-12">Long:</label>
                             <div class="col-md-12">
                                 <input name="FromLng" type="text" readonly class="form-control" value="@Model.Coordinates.Fromlng" />
@@ -124,14 +119,14 @@
                         <hr />
                         <label class="control-label col-md-12">Weight:</label>
                         <input name="Weight" type="text" class=" form-control" value="@Model.Coordinates.Weight kg" />
-                        <div class="form-group">
+                        <div class="form-group col-md-6">
                             <label class="control-label col-md-12">Lat:</label>
                             <div class="col-md-12">
                                 <input name="ToLat" type="text" readonly class="form-control" value="@Model.Coordinates.ToLat" />
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-12">Long:</label>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Long:</label>
                             <div class="col-md-12">
                                 <input name="ToLng" type="text" readonly class="form-control" value="@Model.Coordinates.ToLng" />
                             </div>
@@ -139,47 +134,31 @@
                         
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-12">
-                                <input id="GetToCoordinates" type="submit" value="Calculate" style="width:200px"  class="btn btn-default" />
+                                <input id="GetToCoordinates" type="submit" value="Calculate" style="width:200px" class="btn btn-default" />
                                 <br />
                                 <br />
                                 <input type="submit" class="btn btn-default" id="CreateOrder" value="Create Order" style="width:200px" formaction="@Url.Action("CreateOrder")" />
+                                <br />
+
+                                <br />
+                                @{ 
+                                    string message;
+                                    if (Model.OrderHistory.Orderid == 0)
+                                    {
+                                        message = "";
+                                    }
+                                    else
+                                    {
+                                        message = $"Order Sent with orderID: {Model.OrderHistory.Orderid}";
+                                    }
+                                }
+                                <input type="text" name="ordersent" readonly class="form-control" style="width:200px" value="@message" />
                             </div>
+                            
                         </div>
                     </div>
                     
                 </form>
 
             </div>
-
-
-
-
-
-
-
-
-
-            
-            
         </div>
-    
-
-
-
-
-
-
-
-
-
-
-
-@* <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>*@
-
-
-
-
-
-
-
-

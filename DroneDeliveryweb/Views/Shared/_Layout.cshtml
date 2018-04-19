@@ -24,7 +24,7 @@
                    
                     <li>@Html.ActionLink("Create Customer", "Index", "Customers")</li>
                     <li>@Html.ActionLink("Order History", "Index", "OrderHistories")</li>
-                    @*<li>@Html.ActionLink("Search Order", "Index", " Customers")</li>*@
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -34,7 +34,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year -Peter Näppä Examensarbete</p>
+            <p>&copy; @DateTime.Now.Year - Peter Näppä, Examensarbete</p>
         </footer>
     </div>
 

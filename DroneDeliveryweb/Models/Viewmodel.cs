@@ -14,6 +14,7 @@ namespace DroneDeliveryweb.Models
             OrderHistory = new OrderHistory();
         }
 
+
         public OrderHistory OrderHistory { get; set; }
 
         public Customer Customer { get; set; }

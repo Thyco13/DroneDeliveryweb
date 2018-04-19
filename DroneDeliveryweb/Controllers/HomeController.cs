@@ -23,7 +23,10 @@ namespace DroneDeliveryweb.Controllers
 
             return View(new Viewmodel());
         }
-
+        public ActionResult Contact()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult GetCustomerData(int id)
         {
@@ -147,7 +150,7 @@ namespace DroneDeliveryweb.Controllers
 
                 throw;
             }
-            var ToCity = toCity + ",SE";
+            var ToCity = toCity.ToLower() + ",SE";
             string s = null;
             if (toCity.Contains("å"))
             {
@@ -360,6 +363,7 @@ namespace DroneDeliveryweb.Controllers
                 {
                     Customer = customer,
                     Coordinates = cords,
+                    OrderHistory = order,
                 });
             }
             catch (Exception e)
