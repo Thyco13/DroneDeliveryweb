@@ -11,54 +11,58 @@
 <div class="row">
     <div class="col-md-9">
         <div class="col-md-9">
-            <div class="input-group">
 
-                <form action="@Url.Action("GetCustomerData")" method="post">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" id="GetCustomer" type="submit">Get Customer by ID</button>
-                    </span>
+            <form action="@Url.Action("GetCustomerData")" method="post">
+                <div class="input-group" style=" width:250px">
                     <input type="text" name="id" class="form-control" value="@Model.Customer.Id" />
-                </form>
-            </div>
+                    <span class="input-group-btn">
+                        <button class="btn btn-info" id="GetCustomer" type="submit">Get Customer by ID</button>
+                    </span>
+                    
+                </div>
+            </form>
+            
         </div>
         <div class="col-md-8">
             @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+            {
+                @Html.AntiForgeryToken()
 
-        <h2>Customer Info:</h2>
+                <h2>Customer Info:</h2>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Customer.Name, htmlAttributes: new { @class = "control-label col-md-12" })
-            <div class="col-md-12">
-                @Html.EditorFor(model => model.Customer.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Customer.Name, "", new { @class = "text-danger" })
-            </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Customer.Name, htmlAttributes: new { @class = "control-label col-md-12" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Customer.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Customer.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Customer.LastName, htmlAttributes: new { @class = "control-label col-md-12" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Customer.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Customer.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Customer.Email, htmlAttributes: new { @class = "control-label col-md-12" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Customer.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Customer.Email, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+            }
+
         </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Customer.LastName, htmlAttributes: new { @class = "control-label col-md-12" })
-            <div class="col-md-12">
-                @Html.EditorFor(model => model.Customer.LastName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Customer.LastName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Customer.Email, htmlAttributes: new { @class = "control-label col-md-12" })
-            <div class="col-md-12">
-                @Html.EditorFor(model => model.Customer.Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Customer.Email, "", new { @class = "text-danger" })
-            </div>
-            
-        </div>
-}
-        </div>
-        </div>
+
+    </div>
     <div class="col-md-3">
         <form action="@Url.Action("ClearAll")">
-            <input type="submit" class="btn btn-default" style="background-color:indianred;width:200px; font:bold" id="ClearAll" value="Clear All"/>
+            <input type="submit" class="btn btn-danger" style="width:200px; font:bold" id="ClearAll" value="Clear All" />
         </form>
-        
     </div>
+    
 </div>
 <div class="row">
             <div class="col-md-12">
@@ -99,7 +103,7 @@
                             <div>
                                 <label>Weather:</label>
                                 <textarea name="Weather" style="width:200px; height:75px" class="form-control" readonly>@Model.Coordinates.Weather</textarea>
-                                @*<input name="Weather" type="text" class="form-control" readonly style="width:550px;" value="@Model.Coordinates.Weather" />*@
+                               
                             </div>
 
                         </div>
@@ -111,14 +115,15 @@
                         <hr />
 
                         <label class="control-label col-md-12">Street:</label>
-                        <input type="text" name="ToStreet" class="form-control" value="@Model.Coordinates.ToStreet" />
+                        <input type="text" name="ToStreet" class="form-control" placeholder="Main Street 12" value="@Model.Coordinates.ToStreet" />
                         <label class="control-label col-md-12">City:</label>
-                        <input type="text" name="ToCity" class="form-control" value="@Model.Coordinates.ToCity" />
+                        <input type="text" name="ToCity" placeholder="Stockholm" class="form-control" value="@Model.Coordinates.ToCity" />
                         <label class="control-label col-md-12">Zip:</label>
-                        <input type="text" name="ToZip" class="form-control" value="@Model.Coordinates.ToZip" />
+                        <input type="text" name="ToZip" placeholder="12345" class="form-control" value="@Model.Coordinates.ToZip" />
                         <hr />
                         <label class="control-label col-md-12">Weight:</label>
-                        <input name="Weight" type="text" class=" form-control" value="@Model.Coordinates.Weight kg" />
+                       
+                        <input name="Weight" type="text" class=" form-control" placeholder="kg" value="@Model.Coordinates.Weight"/> 
                         <div class="form-group col-md-6">
                             <label class="control-label col-md-12">Lat:</label>
                             <div class="col-md-12">
@@ -131,30 +136,32 @@
                                 <input name="ToLng" type="text" readonly class="form-control" value="@Model.Coordinates.ToLng" />
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-12">
                                 <input id="GetToCoordinates" type="submit" value="Calculate" style="width:200px" class="btn btn-default" />
                                 <br />
                                 <br />
-                                <input type="submit" class="btn btn-default" id="CreateOrder" value="Create Order" style="width:200px" formaction="@Url.Action("CreateOrder")" />
+                                <input type="submit" class="btn btn-success" id="CreateOrder" value="Create Order" style="width:200px" formaction="@Url.Action("CreateOrder")" />
                                 <br />
 
                                 <br />
-                                @{ 
-                                    string message;
-                                    if (Model.OrderHistory.Orderid == 0)
-                                    {
-                                        message = "";
-                                    }
-                                    else
-                                    {
-                                        message = $"Order Sent with orderID: {Model.OrderHistory.Orderid}";
-                                    }
+                                @{
+                string message;
+                if (Model.OrderHistory.Orderid == 0)
+                {
+                    message = "";
+                }
+                else
+                {
+                    message = $"Order Sent with orderID: {Model.OrderHistory.Orderid}";
+                }
                                 }
                                 <input type="text" name="ordersent" readonly class="form-control" style="width:200px" value="@message" />
+
+
                             </div>
-                            
+
                         </div>
                     </div>
                     

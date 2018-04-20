@@ -208,7 +208,7 @@ namespace DroneDeliveryweb.Controllers
                     ToLng = tolng,
                     Distance = distanceresult,
                     Weather = weather,
-                    Weight = weight,
+                    Weight = weight + "kg",
                     Price = price
                 }
                 
