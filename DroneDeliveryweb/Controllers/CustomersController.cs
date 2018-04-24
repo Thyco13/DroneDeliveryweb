@@ -110,8 +110,16 @@ namespace DroneDeliveryweb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            //OrderHistory OH = db.OrderHistories.Find(id);
+            //db.OrderHistories.Remove(OH);
+
+            var list = db.OrderHistories.Where(o => o.Customer.Id == id).ToList();
+            foreach (var order in list)
+            { db.OrderHistories.Remove(order); }
+
             Customer customer = db.Customers.Find(id);
             db.Customers.Remove(customer);
+            
             db.SaveChanges();
             return RedirectToAction("Index");
         }

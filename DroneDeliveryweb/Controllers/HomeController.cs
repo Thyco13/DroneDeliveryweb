@@ -353,8 +353,8 @@ namespace DroneDeliveryweb.Controllers
                 order.ToCoordinates = cords;
                 db.OrderHistories.Add(order);
                 db.SaveChanges();
-                var body = $"Hi "+customer.Name+"! \r\n \r\n Thank you for choosing to deliver you pakage with our Drone service. \r\n \r\n Order Information:" + "\r\n" + "Order Number: " + order.Orderid + "\r\n " +
-                "\r\n Pakage sent from: " + customer.Name + " " + customer.LastName + "\r\n" + "Adress: " + customer.Street + " " + customer.City +
+                var body = $"Hi "+customer.Name+"! \r\n \r\n Thank you for choosing to deliver you package with our Drone service. \r\n \r\n Order Information:" + "\r\n" + "Order Number: " + order.Orderid + "\r\n " +
+                "\r\n Package sent from: " + customer.Name + " " + customer.LastName + "\r\n" + "Adress: " + customer.Street + " " + customer.City +
                 "\r\n" + "To Adress: " + cords.ToStreet + " " + cords.ToCity + "\r\n" +" Distance: "+cords.Distance + "\r\n Price: " + cords.Price + "\r\n Weight: "+ cords.Weight + "\r\n \r\n" + "Br, The Droney Family";
 
                 Email.Sendmail(customer.Email, body, "Order Confirmation");
